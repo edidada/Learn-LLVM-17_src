@@ -29,3 +29,6 @@ build/
 .vs
 # clangd index
 .clangd
+
+.idea
+cmake-*
