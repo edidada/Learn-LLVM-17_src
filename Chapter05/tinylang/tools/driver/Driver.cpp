@@ -90,13 +90,13 @@ bool emit(StringRef Argv0, llvm::Module *M,
     else
       OutputFilename = InputFilename.str();
     switch (FileType) {
-    case CGFT_AssemblyFile:
+    case CodeGenFileType::AssemblyFile:
       OutputFilename.append(EmitLLVM ? ".ll" : ".s");
       break;
-    case CGFT_ObjectFile:
+    case CodeGenFileType::ObjectFile:
       OutputFilename.append(".o");
       break;
-    case CGFT_Null:
+    case CodeGenFileType::Null:
       OutputFilename.append(".null");
       break;
     }
@@ -105,7 +105,7 @@ bool emit(StringRef Argv0, llvm::Module *M,
   // Open the file.
   std::error_code EC;
   sys::fs::OpenFlags OpenFlags = sys::fs::OF_None;
-  if (FileType == CGFT_AssemblyFile)
+  if (FileType == CodeGenFileType::AssemblyFile)
     OpenFlags |= sys::fs::OF_Text;
   auto Out = std::make_unique<llvm::ToolOutputFile>(
       OutputFilename, EC, OpenFlags);
@@ -114,7 +114,7 @@ bool emit(StringRef Argv0, llvm::Module *M,
     return false;
   }
 
-  if (FileType == CGFT_AssemblyFile && EmitLLVM) {
+  if (FileType == CodeGenFileType::AssemblyFile && EmitLLVM) {
     M->print(Out->os(), nullptr);
   } else {
     legacy::PassManager PM;

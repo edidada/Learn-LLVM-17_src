@@ -27,6 +27,7 @@ build/
 # VS2017 and VSCode config files.
 .vscode
 .vs
+out
 # clangd index
 .clangd
 
