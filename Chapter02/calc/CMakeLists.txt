@@ -10,8 +10,8 @@ if(WIN32)
 #  include(ChooseMSVCCRT)
 
   if(MSVC)
-    # 设置静态链接运行时（可选）
-    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+    # 设置
+    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreadedDLL")
   endif ()
 endif()
 
