@@ -9,6 +9,8 @@ Sema
 sudo apt install -y llvm-17 llvm-17-dev clang-17 libllvm-17-ocaml-dev
 
 ## Chapter02 calc
+llvm::StringRef
+
 ```shell
 /mnt/d/develops/git/github/cpp/Learn-LLVM-17_src/cmake-build-debug-wsl24/Chapter02/calc/src/calc 1+2
 ; ModuleID = 'calc.expr'
