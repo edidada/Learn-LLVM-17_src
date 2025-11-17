@@ -1,4 +1,11 @@
 # my
+
+Basic
+CodeGen
+Lexer
+Parser
+Sema
+
 sudo apt install -y llvm-17 llvm-17-dev clang-17 libllvm-17-ocaml-dev
 
 ## Chapter02 calc
