@@ -5,7 +5,15 @@ project ("JIT2")
 find_package(LLVM REQUIRED CONFIG)
 list(APPEND CMAKE_MODULE_PATH ${LLVM_DIR})
 include(DetermineGCCCompatible)
-include(ChooseMSVCCRT)
+
+if(WIN32)
+  #  include(ChooseMSVCCRT)
+
+  if(MSVC)
+    # 设置
+    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreadedDLL")
+  endif ()
+endif()
 
 add_definitions(${LLVM_DEFINITIONS})
 include_directories(SYSTEM ${LLVM_INCLUDE_DIRS})

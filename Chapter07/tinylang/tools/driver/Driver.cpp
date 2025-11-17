@@ -126,13 +126,13 @@ std::string outputFilename(StringRef InputFilename) {
     else
       OutputFilename = InputFilename.str();
     switch (FileType) {
-    case CGFT_AssemblyFile:
+    case CodeGenFileType::AssemblyFile:
       OutputFilename.append(EmitLLVM ? ".ll" : ".s");
       break;
-    case CGFT_ObjectFile:
+    case CodeGenFileType::ObjectFile:
       OutputFilename.append(".o");
       break;
-    case CGFT_Null:
+    case CodeGenFileType::Null:
       OutputFilename.append(".null");
       break;
     }
