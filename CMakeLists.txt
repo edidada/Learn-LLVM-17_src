@@ -30,3 +30,9 @@ add_subdirectory ("Chapter04/tinylang")
 #add_subdirectory ("Chapter08/TableGen")
 #add_subdirectory ("Chapter09/jit")
 #add_subdirectory ("Chapter09/lljit")
+
+if(UNIX AND NOT APPLE)  # Linux 系统
+    add_subdirectory("Chapter10/clang-plugin")
+    add_subdirectory("Chapter10/clang-plugin2")
+    add_subdirectory("Chapter10/iconvchecker")
+endif()
